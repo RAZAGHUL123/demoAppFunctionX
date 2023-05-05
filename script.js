@@ -1,16 +1,24 @@
-function addNumbers() {
-	// Get the input values
-	var num1 = parseInt(document.getElementById("num1").value);
-	var num2 = parseInt(document.getElementById("num2").value);
-
-	// Call the add function and store the result
-	var result = add(num1, num2);
-
-	// Display the result in the output div
-	document.getElementById("output").innerHTML = "The result is: " + result;
-}
-
-function add(a, b) {
-	// Add the two numbers and return the result
-	return a + b;
-}
+function findLargestNumber(numbers) {
+	let largest = -Infinity;
+	
+	for (let i = 0; i < numbers.length; i++) {
+	  const num = parseFloat(numbers[i]);
+	  
+	  if (isNaN(num)) {
+		console.log(`Invalid input: ${numbers[i]}. Skipping...`);
+		continue;
+	  }
+	  
+	  if (num > largest) {
+		largest = num;
+	  }
+	}
+	
+	if (largest === -Infinity) {
+	  console.log("No valid numbers entered.");
+	  return null;
+	} else {
+	  return largest;
+	}
+  }
+  
