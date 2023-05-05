@@ -15,24 +15,23 @@ function findEvenNumbers(numbers) {
 	}
   
 	if (evenNumbers.length === 0) {
-	  console.log("No valid even numbers entered.");
+	  console.log("No even numbers found.");
 	  return null;
 	} else {
 	  return evenNumbers;
 	}
   }
   
-  function findLargest() {
+  function findEven() {
 	const numbers = document.getElementById("numbers").value.split(",");
 	const evenNumbers = findEvenNumbers(numbers);
   
 	if (evenNumbers !== null) {
-	  const outputElement = document.getElementById("output");
-	  outputElement.innerHTML = "<ul>";
+	  let outputHtml = "The even numbers are:<br>";
 	  for (let i = 0; i < evenNumbers.length; i++) {
-		outputElement.innerHTML += `<li>${evenNumbers[i]}</li>`;
+		outputHtml += `${evenNumbers[i]}<br>`;
 	  }
-	  outputElement.innerHTML += "</ul>";
+	  document.getElementById("output").innerHTML = outputHtml;
 	}
   }
   
