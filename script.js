@@ -1,5 +1,5 @@
-function findLargestNumber(numbers) {
-	let largest = -Infinity;
+function findEvenNumbers(numbers) {
+	const evenNumbers = [];
   
 	for (let i = 0; i < numbers.length; i++) {
 	  const num = parseFloat(numbers[i]);
@@ -9,25 +9,30 @@ function findLargestNumber(numbers) {
 		continue;
 	  }
   
-	  if (num > largest) {
-		largest = num;
+	  if (num % 2 === 0) {
+		evenNumbers.push(num);
 	  }
 	}
   
-	if (largest === -Infinity) {
-	  console.log("No valid numbers entered.");
+	if (evenNumbers.length === 0) {
+	  console.log("No valid even numbers entered.");
 	  return null;
 	} else {
-	  return largest;
+	  return evenNumbers;
 	}
   }
   
   function findLargest() {
 	const numbers = document.getElementById("numbers").value.split(",");
-	const largestNumber = findLargestNumber(numbers);
-	
-	if (largestNumber !== null) {
-	  document.getElementById("output").innerHTML = `The largest number is ${largestNumber}.`;
+	const evenNumbers = findEvenNumbers(numbers);
+  
+	if (evenNumbers !== null) {
+	  const outputElement = document.getElementById("output");
+	  outputElement.innerHTML = "<ul>";
+	  for (let i = 0; i < evenNumbers.length; i++) {
+		outputElement.innerHTML += `<li>${evenNumbers[i]}</li>`;
+	  }
+	  outputElement.innerHTML += "</ul>";
 	}
   }
   
